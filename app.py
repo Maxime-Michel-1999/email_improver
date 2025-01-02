@@ -184,6 +184,10 @@ if 'suggestion1' in st.session_state and 'suggestion2' in st.session_state:
         if st.button("Choose Version 1"):
             st.session_state.selected = st.session_state.suggestion1
             st.markdown("<p class='success-msg'>✅ Version 1 selected!</p>", unsafe_allow_html=True)
+            # Replace suggestions with selected version
+            st.session_state.pop('suggestion1')
+            st.session_state.pop('suggestion2')
+            st.experimental_rerun()
             
     with col2:
         st.text_area("Version 2:", value=st.session_state.suggestion2, height=200, key="sug2")
@@ -191,7 +195,12 @@ if 'suggestion1' in st.session_state and 'suggestion2' in st.session_state:
         if st.button("Choose Version 2"):
             st.session_state.selected = st.session_state.suggestion2
             st.markdown("<p class='success-msg'>✅ Version 2 selected!</p>", unsafe_allow_html=True)
+            # Replace suggestions with selected version
+            st.session_state.pop('suggestion1')
+            st.session_state.pop('suggestion2')
+            st.experimental_rerun()
 
+# Display selected version if it exists
 if 'selected' in st.session_state:
-    st.subheader("📋 Your selected version:")
+    st.subheader("📋 Your improved email:")
     st.text_area("Final version:", value=st.session_state.selected, height=200)
