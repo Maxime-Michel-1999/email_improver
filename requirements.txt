@@ -1,0 +1,10 @@
+streamlit
+groq==0.13.1
+python-dotenv
+gspread==6.1.4
+google-api-core==2.19.2
+google-api-python-client==2.154.0
+google-auth==2.34.0
+google-auth-httplib2==0.2.0
+google-auth-oauthlib==1.2.1
+googleapis-common-protos==1.65.0
